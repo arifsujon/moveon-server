@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config()
 
+
 const port = process.env.PORT || 5000
 
 app.use(cors());
@@ -22,7 +23,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(err => {
   console.log('connection err', err);
   const serviceCollection = client.db("moveon").collection("services");
-  // perform actions on the collection object
   // console.log('Database connected successfully');
   app.post('/addService', (req, res) => {
     const newService = req.body;
